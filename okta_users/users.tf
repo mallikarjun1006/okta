@@ -1,9 +1,3 @@
-provider "okta" {
-  org_name  = "dev-636187"
-  base_url  = "oktapreview.com"
-  api_token = "00cH31U7QcJB2k_dpsP8KVktyHD99z8uxt4GTg8chK"
-}
-
 resource okta_user test21 {
   first_name = "TestAcc2"
   last_name  = "Jones2"
@@ -23,4 +17,11 @@ resource okta_user test121 {
   last_name  = "Jones121"
   login      = "john_replace_with_uuid121@ledzeppelin.com"
   email      = "john_replace_with_uuid121@ledzeppelin.com"
+}
+
+resource okta_user test1211 {
+  first_name = "TestAcc1211"
+  last_name  = "Jones1211"
+  login      = "john_replace_with_uuid1211@ledzeppelin.com"
+  email      = "john_replace_with_uuid1211@ledzeppelin.com"
 }
