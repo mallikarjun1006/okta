@@ -1,10 +1,21 @@
-resource "aws_ami" "example" {
-  name                = "terraform-example"
-  virtualization_type = "hvm"
-  root_device_name    = "/dev/xvda"
+data "aws_ami" "example" {
+  executable_users = ["self"]
+  most_recent      = true
+  name_regex       = "^myami-\\d{3}"
+  owners           = ["self"]
 
-  ebs_block_device {
-    device_name = "/dev/xvda"    
-    volume_size = 8
+  filter {
+    name   = "name"
+    values = ["myami-*"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
   }
 }
