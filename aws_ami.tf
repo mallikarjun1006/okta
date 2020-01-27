@@ -1,19 +1,10 @@
-provider "aws" {
-  region = "us-west-2"
-}
+resource "aws_ami" "example" {
+  name                = "terraform-example"
+  virtualization_type = "hvm"
+  root_device_name    = "/dev/xvda"
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/ubuntu-*-*-amd64-server-*""]
+  ebs_block_device {
+    device_name = "/dev/xvda"    
+    volume_size = 8
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["402834009890"] # Canonical
 }
