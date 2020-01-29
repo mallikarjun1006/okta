@@ -78,7 +78,7 @@ ingress {
 }
 
 resource "aws_security_group" "main1" {
-  name        = "main"
+  name        = "main1"
   description = "Allow TLS inbound traffic"
   vpc_id      = "${aws_vpc.main.id}"
 ingress {
@@ -98,7 +98,7 @@ ingress {
   
 
   tags = {
-    Name = "main"
+    Name = "main1"
   }
 }
 
