@@ -30,3 +30,14 @@ resource "aws_instance" "web" {
     Name = "HelloWorld"
   }
 }
+
+resource "aws_instance" "web1" {
+  ami           = "${data.aws_ami.ubuntu.id}"  
+  instance_type = "t2.micro"
+  subnet_id="${aws_subnet.secondary.id}"
+	vpc_security_group_ids=["${aws_security_group.main1.id}"]
+	security_groups=["${aws_security_group.main1.id}"]	
+  tags = {
+    Name = "main1"
+  }
+}
