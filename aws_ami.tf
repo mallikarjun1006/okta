@@ -18,9 +18,14 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+resource "aws_network_interface" "primary_network_interface" {
+  subnet_id   = "${aws_subnet.primary.id}"
+  
 
-
-
+  tags = {
+    Name = "primary_network_interface"
+  }
+}
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"  
@@ -28,6 +33,10 @@ resource "aws_instance" "web" {
   subnet_id="${aws_subnet.primary.id}"
 	vpc_security_group_ids=["${aws_security_group.main.id}"]
 	security_groups=["${aws_security_group.main.id}"]
+	network_interface {
+    network_interface_id = "${aws_network_interface.primary_network_interface.id}"
+    device_index         = 0
+  }
   tags = {
     Name = "HelloWorld"
   }
