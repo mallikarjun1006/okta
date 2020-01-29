@@ -24,6 +24,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
+  instance_count="2"
   instance_type = "t2.micro"
   subnet_id="${aws_subnet.primary.id}"
 	vpc_security_group_ids=["${aws_security_group.main.id}"]
