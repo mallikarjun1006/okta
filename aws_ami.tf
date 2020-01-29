@@ -27,6 +27,7 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   subnet_id="${aws_subnet.primary.id}"
 	vpc_security_group_ids=["${aws_security_group.main.id}"]
+	security_groups=["${aws_security_group.main.id}"]
   tags = {
     Name = "HelloWorld"
   }
