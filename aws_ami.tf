@@ -23,7 +23,7 @@ data "aws_security_groups" "main" {
 
   filter {
     name   = "vpc-id"
-    values = ["${aws_vpc.main.vpc_id}"]
+    values = ["${aws_vpc.main.id}"]
   }
 }
 
