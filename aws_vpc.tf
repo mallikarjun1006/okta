@@ -19,17 +19,7 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-# e.g. Create subnets in the first two available availability zones
 
-
-resource "aws_subnet" "main" {
-  vpc_id     = "${aws_vpc.main.id}"
-  cidr_block = "10.0.1.0/24"
-	
-  tags = {
-    Name = "Main"
-  }
-}
 
 resource "aws_subnet" "primary" {
 vpc_id     = "${aws_vpc.main.id}"
