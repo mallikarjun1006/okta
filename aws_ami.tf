@@ -29,8 +29,7 @@ data "aws_security_groups" "main" {
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "t2.micro"
-  vpc_security_group_ids =["${data.aws_security_groups.main.id}"]
+  instance_type = "t2.micro"  
   tags = {
     Name = "HelloWorld"
   }
