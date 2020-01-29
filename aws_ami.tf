@@ -18,21 +18,14 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-data "aws_security_groups" "main" {
-  
 
-  filter {
-    name   = "vpc-id"
-    values = ["${aws_vpc.main.id}"]
-  }
-}
 
 
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
-  subnet_id="${aws_subnet.main.id}"
+  subnet_id="${aws_subnet.primary.id}"
 	vpc_security_group_ids=["${aws_security_group.main.id}"]
   tags = {
     Name = "HelloWorld"
