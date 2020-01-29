@@ -23,3 +23,15 @@ resource "aws_internet_gateway" "gw" {
     Name = "main"
   }
 }
+
+resource "aws_security_group" "main" {
+  name        = "main"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = "${aws_vpc.main.id}"
+
+  
+
+  tags = {
+    Name = "main"
+  }
+}
