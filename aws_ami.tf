@@ -32,7 +32,7 @@ data "aws_security_groups" "main" {
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
-  subnet_id="${aws_subnet.main.subnet_id}"
+  subnet_id="${aws_subnet.main.id}"
 	vpc_security_group_ids=["${aws_security_group.main.id}"]
   tags = {
     Name = "HelloWorld"
