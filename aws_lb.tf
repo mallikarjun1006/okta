@@ -23,8 +23,8 @@ ingress {
   }
 }
 
-resource "aws_lb" "main_lb" {
-  name               = "main_lb"
+resource "aws_lb" "mainlb" {
+  name               = "mainlb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.main_lb_sg.id}"]
@@ -35,6 +35,6 @@ resource "aws_lb" "main_lb" {
   
 
   tags = {
-    Environment = "main_lb"
+    Environment = "mainlb"
   }
 }
