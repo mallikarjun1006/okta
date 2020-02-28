@@ -6,7 +6,7 @@ resource "aws_lb_target_group" "testgroup" {
 }
 
 resource "aws_lb_listener" "front_end" {
-  load_balancer_arn = "${aws_lb.front_end.arn}"
+  load_balancer_arn = "${aws_lb.mainlb.arn}"
   port              = "80"
   protocol          = "HTTP"
   
