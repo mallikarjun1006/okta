@@ -131,7 +131,7 @@ resource "aws_instance" "web" {
 	vpc_security_group_ids=["${aws_security_group.main.id}"]
 	security_groups=["${aws_security_group.main.id}"]	
   tags = {
-    Name = "HelloWorld"
+    Name = "instance1"
   }
 }
 
@@ -142,7 +142,7 @@ resource "aws_instance" "web1" {
 	vpc_security_group_ids=["${aws_security_group.main1.id}"]
 	security_groups=["${aws_security_group.main1.id}"]	
   tags = {
-    Name = "main1"
+    Name = "instance2"
   }
 }
 
