@@ -130,7 +130,7 @@ resource "aws_instance" "web" {
   subnet_id="${aws_subnet.primary.id}"
 	vpc_security_group_ids=["${aws_security_group.main.id}"]
 	security_groups=["${aws_security_group.main.id}"]	
-	key_name="${aws_key_pair.deployer.key_name}"
+	key_name="${aws_key_pair.ec2user.key_name}"
   
   tags = {
     Name = "instance1"
@@ -143,7 +143,7 @@ resource "aws_instance" "web1" {
   subnet_id="${aws_subnet.secondary.id}"
 	vpc_security_group_ids=["${aws_security_group.main1.id}"]
 	security_groups=["${aws_security_group.main1.id}"]
-key_name="${aws_key_pair.deployer.key_name}"	
+key_name="${aws_key_pair.ec2user.key_name}"	
   tags = {
     Name = "instance2"
   }
